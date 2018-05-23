@@ -33,13 +33,17 @@ async function generateSplashImage(img, size, splash) {
   return makeDir(splash.dir).then(
     () =>
       new Promise((resolve, reject) => {
-        const target = path.join(splash.dir, splash.name);
+        const target = path.format({
+          dir: splash.dir,
+          name: splash.name,
+          ext
+        });
 
         gm(img)
           .resize(...getResizeDimensions(size, splash))
           .gravity("Center")
           .crop(splash.width, splash.height)
-          .write(`${target}${ext}`, err => {
+          .write(target, err => {
             if (err) {
               return reject(err);
             }
