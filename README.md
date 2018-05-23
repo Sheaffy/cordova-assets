@@ -77,6 +77,20 @@ Inside the mounted directory you'll find the generated icons. Warning: existing 
 
 The command outputs the paths to the generated images, which you can copy to your project's Cordova `config.xml`. Be sure to update the paths to the images to match your project structure.
 
+## Motivation
+
+> Why yet another splash screen and app icon generator?
+
+Great question :smile:. There were a couple of reasons to create this:
+
+1. Existing command line tools like [Ionic Cordova Resources](https://ionicframework.com/docs/cli/cordova/resources/) require a Ionic account.
+2. Existing command line tools like [cordova-splash](https://github.com/AlexDisler/cordova-splash) only support PNG and only work inside a real Cordova project.
+3. Online tools like [Image Gorilla](https://apetools.webprofusion.com/app/#/tools/imagegorilla) and [Resource Generator](https://www.resource-generator.com/) only support PNG.
+
+For photo-like splash screen images it makes sense to use JPG instead of PNG. Device support is pretty good, in my experience.
+
+So, in the end, I _just_ wanted to resize some JPG images. Therefore I created this.
+
 ## License
 
 MIT license.
