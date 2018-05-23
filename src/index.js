@@ -1,9 +1,11 @@
-const gm = require("gm");
+const splash = require("./splash");
 
+const command = process.argv[2];
 const img = process.argv[3];
 
-gm(img).size((err, size) => {
-  if (err) throw err;
+if (!command) throw new Error("Use `splash` or `icon`");
+if (!img) throw new Error("No image specified");
 
-  console.log(size.width, size.height);
-});
+if (command === "splash") {
+  splash(img);
+}
