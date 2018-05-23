@@ -1,3 +1,4 @@
+const icon = require("./icon");
 const splash = require("./splash");
 
 const command = process.argv[2];
@@ -8,4 +9,6 @@ if (!img) throw new Error("No image specified");
 
 if (command === "splash") {
   splash(img);
+} else {
+  icon(img);
 }

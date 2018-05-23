@@ -85,6 +85,51 @@ const splash = [
   }
 ];
 
+const icons = [
+  {
+    dir: "/app/android/drawable-ldpi",
+    name: "icon.png",
+    width: 36,
+    height: 36,
+    density: "ldpi"
+  },
+  {
+    dir: "/app/android/drawable-mdpi",
+    name: "icon.png",
+    width: 48,
+    height: 48,
+    density: "mdpi"
+  },
+  {
+    dir: "/app/android/drawable-hdpi",
+    name: "icon.png",
+    width: 72,
+    height: 72,
+    density: "hdpi"
+  },
+  {
+    dir: "/app/android/drawable-xhdpi",
+    name: "icon.png",
+    width: 96,
+    height: 96,
+    density: "xhdpi"
+  },
+  {
+    dir: "/app/android/drawable-xxhdpi",
+    name: "icon.png",
+    width: 144,
+    height: 144,
+    density: "xxhdpi"
+  },
+  {
+    dir: "/app/android/drawable-xxxhdpi",
+    name: "icon.png",
+    width: 192,
+    height: 192,
+    density: "xxxhdpi"
+  }
+];
+
 const splashTemplate = splash =>
   `<splash density="${splash.density}" src="${splash.src}" />`;
 
@@ -95,6 +140,7 @@ const platformTemplate = images => `
 
 module.exports = {
   splash,
+  icons,
   splashTemplate,
   platformTemplate
 };
