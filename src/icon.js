@@ -42,7 +42,13 @@ async function generateIcon(img, icon) {
 async function generateIcons(img) {
   return Promise.all(
     [ios, android].map(platform =>
-      Promise.all(platform.icons.map(icon => generateIcon(img, icon)))
+      Promise.all(platform.icons.map(icon => generateIcon(img, icon))).then(
+        icons => {
+          const images = icons.map(platform.iconTemplate);
+
+          return platform.platformTemplate(images);
+        }
+      )
     )
   );
 }

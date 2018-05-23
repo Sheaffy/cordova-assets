@@ -130,6 +130,9 @@ const icons = [
   }
 ];
 
+const iconTemplate = icon =>
+  `<icon density="${icon.density}" src="${icon.src}" />`;
+
 const splashTemplate = splash =>
   `<splash density="${splash.density}" src="${splash.src}" />`;
 
@@ -141,6 +144,7 @@ const platformTemplate = images => `
 module.exports = {
   splash,
   icons,
+  iconTemplate,
   splashTemplate,
   platformTemplate
 };

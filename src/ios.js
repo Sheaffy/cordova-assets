@@ -26,6 +26,9 @@ const icons = [
   { dir: "/app/ios", name: "icon-small@3x.png", width: 87, height: 87 }
 ];
 
+const iconTemplate = icon =>
+  `<icon src="${icon.src}" width="${icon.width}" height="${icon.height}" />`;
+
 const splashTemplate = splash => `<splash src="${splash.src}" />`;
 
 const platformTemplate = images => `
@@ -36,6 +39,7 @@ const platformTemplate = images => `
 module.exports = {
   splash,
   icons,
+  iconTemplate,
   splashTemplate,
   platformTemplate
 };
