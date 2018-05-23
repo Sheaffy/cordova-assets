@@ -4,12 +4,12 @@ Docker image to generate Cordova app icons and splash screen images.
 
 ## Generate splash screen images
 
-Generates all necessary splash screen images (launch screen images) for Android and iOS. Supports PNG and JPG. Mount a directory on `/app` in the Docker container and specify the path where the source image can be found.
+Generates all necessary splash screen images (launch screen images) for Android and iOS. Supports PNG and JPG. Mount a directory on `/app` in the Docker container and specify the path where the source image can be found (absolute path inside container).
 
 For example, mounting the current working directory:
 
 ```sh
-$ docker run --rm -v "$(pwd):/app" leonderijke/cordova-assets splash splash.jpg
+$ docker run --rm -v "$(pwd):/app" leonderijke/cordova-assets splash /app/splash.jpg
 <platform name="ios">
   <splash src="/app/ios/Default@2x~universal~anyany.jpg" />
 </platform>
@@ -39,7 +39,7 @@ The command outputs the paths to the generated images, which you can copy to you
 Generate all necessary app icons for Android and iOS. Supports PNG.
 
 ```sh
-$ docker run --rm -v "$(pwd):/app" leonderijke/cordova-assets icon icon.png
+$ docker run --rm -v "$(pwd):/app" leonderijke/cordova-assets icon /app/icon.png
 ```
 
 ## License
