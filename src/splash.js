@@ -47,7 +47,10 @@ async function generateSplashImage(img, size, splash) {
             if (err) {
               return reject(err);
             }
-            resolve();
+            resolve({
+              ...splash,
+              src: target
+            });
           });
       })
   );
@@ -61,8 +64,14 @@ async function generateSplashImage(img, size, splash) {
  */
 async function generateSplashImages(img, size) {
   return Promise.all(
-    [...ios.splash, ...android.splash].map(splash =>
-      generateSplashImage(img, size, splash)
+    [ios, android].map(platform =>
+      Promise.all(
+        platform.splash.map(splash => generateSplashImage(img, size, splash))
+      ).then(splashes => {
+        const images = splashes.map(platform.splashTemplate);
+
+        return platform.platformTemplate(images);
+      })
     )
   );
 }
@@ -92,8 +101,8 @@ async function getImageSize(img) {
 async function splash(img) {
   const size = await getImageSize(img);
 
-  return generateSplashImages(img, size).then(() => {
-    console.log("All done!");
+  return generateSplashImages(img, size).then(platforms => {
+    platforms.forEach(p => console.log(p));
   });
 }
 
