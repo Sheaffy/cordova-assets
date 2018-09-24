@@ -21,6 +21,7 @@ const icons = [
   { dir: "/app/ios", name: "icon-72@2x.png", width: 144, height: 144 },
   { dir: "/app/ios", name: "icon-76.png", width: 76, height: 76 },
   { dir: "/app/ios", name: "icon-76@2x.png", width: 152, height: 152 },
+  { dir: "/app/ios", name: "icon-83.5@2x.png", width: 167, height: 167 },
   { dir: "/app/ios", name: "icon-small.png", width: 29, height: 29 },
   { dir: "/app/ios", name: "icon-small@2x.png", width: 58, height: 58 },
   { dir: "/app/ios", name: "icon-small@3x.png", width: 87, height: 87 }
